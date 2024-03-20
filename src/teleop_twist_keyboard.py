@@ -21,10 +21,6 @@ For Holonomic mode (strafing), hold down the shift key:
    J    K    L
    M    <    >
 
-   
-1 :  make Quadrotor takes off
-2 :  make Quadrotor lands
-
 t : up (+z)
 b : down (-z)
 

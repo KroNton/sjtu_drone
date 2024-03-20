@@ -8,20 +8,36 @@ The acronym 'sjtu' stands for Shanghai Jiao Tong University. This package has be
 
 This package is compatible with ROS Noetic version (Ubuntu 20.04). Existing versions on the internet support at most until Gazebo 7. After Gazebo 8.0, the API has gone significant changes; therefore, it was necessary to adapt the package to Gazebo 8.0+ API. As the default version of Gazebo coming with ROS Noetic is 11.0, it is suggested that do not use the full installation but the [desktop installation](http://wiki.ros.org/noetic/Installation/Ubuntu).
 
-# Downloading and building
+# Download and build for ROS1 Noetic
 
-```
-cd ~/git && git clone git@github.com:NovoG93/sjtu-drone.git 
-cd ~/catkin_ws/src && ln -s ~/git/sjtu-drone
-cd .. && rosdep install -r -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO && catkin build
-```
-# Run
+* ###  Clone the repo 
 
+```bash
+# inside workspace src (~/catkin_ws/src)
+git clone -b noetic https://github.com/KroNton/sjtu_drone.git
 ```
-source ~/catkin_ws/devel/setpu.bash && rospack profile
+
+ * ### Install depends pkgs
+```bash
+#inside your workspace (~/catkin_ws)
+rosdep install -r -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
+```
+
+* ### Build 
+```bash
+#inside your workspace (~/catkin_ws)
+catkin_make
+```
+
+# Run Drone simulation
+### source workspace
+```bash
+source devel/setup.bash && rospack profile
+```
+### launch drone in empty world 
+```bash
 roslaunch sjtu_drone start.launch
 ```
-
 You should now see the following:
 
 ![Gazebo](img/drone.jpg)
